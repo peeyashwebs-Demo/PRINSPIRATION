@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Gadgets | Prinspiration</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container navbar">
+        <div class="logo">Prinspiration</div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <button id="cart-btn" class="cart-btn">
+            🛒 Cart (<span id="cart-count">0</span>)
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <!-- Text -->
+        <div>
+          <h1>Smart Gadgets. Inspired Living.</h1>
+          <p>
+            Discover premium gadgets designed for productivity, comfort,
+            entertainment, and modern living.
+          </p>
+          <a href="products.html" class="btn btn-primary">Shop Gadgets</a>
+
+          <div class="hero-badges">
+            <span>✔ Original Products</span>
+            <span>✔ Fast Delivery</span>
+            <span>✔ Warranty Included</span>
+          </div>
+        </div>
+
+        <!-- Carousel -->
+       <!-- Carousel -->
+<div class="hero-carousel">
+  <img src="images/earbuds.jpg" class="hero-slide active" />
+  <img src="images/powerbank.jpg" class="hero-slide" />
+  <img src="images/phone-1.jpg" class="hero-slide" />
+  <img src="images/charger.jpg" class="hero-slide" />
+</div>
+
+    </section>
+    <!-- FILTERS -->
+    <section style="padding-top: 0">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Products</h2>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <button class="btn btn-primary filter-btn" data-category="all">
+            All
+          </button>
+          <button class="btn filter-btn" data-category="smartphones">
+            Smartphones
+          </button>
+          <button class="btn filter-btn" data-category="accessories">
+            Accessories
+          </button>
+          <button class="btn filter-btn" data-category="wearables">
+            Wearables
+          </button>
+          <button class="btn filter-btn" data-category="smarthome">
+            Smart Home
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS GRID -->
+    <section>
+      <div class="container">
+        <div class="card-grid" id="products-grid">
+          <!-- Products injected by JavaScript -->
+        </div>
+      </div>
+    </section>
+    <!-- CART MODAL -->
+    <div id="cart-modal" class="cart-modal hidden">
+      <div class="cart-overlay" id="cart-overlay"></div>
+
+      <div class="cart-content">
+        <h2>Your Cart</h2>
+
+        <div id="cart-items">
+          <!-- Items injected by JS -->
+        </div>
+
+        <div class="cart-summary">
+          <strong>Total:</strong>
+          <span id="cart-total">₦0</span>
+        </div>
+
+        <div class="cart-actions">
+          <button id="checkout-whatsapp" class="btn btn-primary">
+            Checkout via WhatsApp
+          </button>
+          <button id="close-cart" class="btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+   <!-- WHY CHOOSE US -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose Prinspiration</h2>
+        </div>
+        <div class="card-grid">
+          <div class="card">✔ 100% Original Gadgets</div>
+          <div class="card">✔ Secure Payments</div>
+          <div class="card">✔ Nationwide Delivery</div>
+          <div class="card">✔ Dedicated Support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <strong>Do you offer warranty?</strong>
+            <p>Yes, all gadgets come with warranty coverage.</p>
+          </div>
+          <div class="card">
+            <strong>How fast is delivery?</strong>
+            <p>Delivery within 24–72 hours nationwide.</p>
+          </div>
+          <div class="card">
+            <strong>How do I checkout?</strong>
+            <p>Checkout directly via WhatsApp for fast processing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <img src="images/logo.png" alt="Prinspiration Logo" height="30" />
+          <p>Premium gadgets for inspired living.</p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <p><a href="products.html">Shop</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <p>Email: support@prinspiration.com</p>
+          <p>WhatsApp Available</p>
+          <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br /><br />
+      <p class="copyright">© 2026 Prinspiration. All rights reserved.</p>
+    </footer>
+    <!-- SCRIPTS -->
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products.js"></script>
+    <script>
+  const slides = document.querySelectorAll(".hero-slide");
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+  }
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 3500);
+</script>
+
+  </body>
+</html>

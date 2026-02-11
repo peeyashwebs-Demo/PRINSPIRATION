@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prinspiration | Smart Gadgets</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container navbar">
+        <div class="logo">Prinspiration</div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <button id="cart-btn" class="cart-btn">
+            🛒 Cart (<span id="cart-count">0</span>)
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <h1>About Prinspiration</h1>
+        <p>Inspired technology for modern living.</p>
+      </div>
+    </section>
+
+    <!-- ABOUT CONTENT -->
+    <section>
+      <div class="container" style="max-width: 900px">
+        <h2>Who We Are</h2>
+        <p style="margin: 16px 0; color: #b5b8c5">
+          Prinspiration is a premium gadget brand focused on delivering
+          high-quality, reliable, and stylish technology products. Our goal is
+          simple: to inspire everyday life through smart innovation.
+        </p>
+
+        <h2>What We Do</h2>
+        <p style="margin: 16px 0; color: #b5b8c5">
+          From smartphones and accessories to smart home solutions, we curate
+          and design products that blend performance, design, and affordability.
+        </p>
+
+        <h2>Why Choose Us</h2>
+        <ul style="margin-top: 16px; color: #b5b8c5">
+          <li>Premium-quality gadgets</li>
+          <li>Customer-first support</li>
+          <li>Fast delivery & WhatsApp checkout</li>
+          <li>Trusted by modern tech users</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>Prinspiration</h3>
+          <p>Premium gadgets for inspired living.</p>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <p><a href="#">Help Center</a></p>
+          <p><a href="#">Warranty</a></p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>Email: support@prinspiration.com</p>
+          <p>WhatsApp Available</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART MODAL -->
+    <div id="cart-modal" class="cart-modal hidden">
+      <div class="cart-overlay" id="cart-overlay"></div>
+
+      <div class="cart-content">
+        <h2>Your Cart</h2>
+
+        <div id="cart-items">
+          <!-- Items injected by JS -->
+        </div>
+
+        <div class="cart-summary">
+          <strong>Total:</strong>
+          <span id="cart-total">₦0</span>
+        </div>
+
+        <div class="cart-actions">
+          <button id="checkout-whatsapp" class="btn btn-primary">
+            Checkout via WhatsApp
+          </button>
+          <button id="close-cart" class="btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

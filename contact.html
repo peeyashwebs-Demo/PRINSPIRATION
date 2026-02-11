@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prinspiration | Smart Gadgets</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container navbar">
+        <div class="logo">Prinspiration</div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <button id="cart-btn" class="cart-btn">
+            🛒 Cart (<span id="cart-count">0</span>)
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section>
+      <div class="container" style="max-width: 700px">
+        <form class="contact-form">
+          <label>
+            Full Name
+            <input type="text" placeholder="Your name" required />
+          </label>
+
+          <label>
+            Email Address
+            <input type="email" placeholder="you@example.com" required />
+          </label>
+
+          <label>
+            Message
+            <textarea
+              rows="5"
+              placeholder="Your message..."
+              required
+            ></textarea>
+          </label>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+
+        <div class="contact-whatsapp">
+          <p style="color: #b5b8c5">Or reach us directly on WhatsApp</p>
+          <a
+            class="btn"
+            style="border: 1px solid #2f8cff"
+            target="_blank"
+            href="https://wa.me/234XXXXXXXXXX"
+          >
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>Prinspiration</h3>
+          <p>Premium gadgets for inspired living.</p>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <p><a href="#">Help Center</a></p>
+          <p><a href="#">Warranty</a></p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>Email: support@prinspiration.com</p>
+          <p>WhatsApp Available</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART MODAL -->
+    <div id="cart-modal" class="cart-modal hidden">
+      <div class="cart-overlay" id="cart-overlay"></div>
+
+      <div class="cart-content">
+        <h2>Your Cart</h2>
+
+        <div id="cart-items">
+          <!-- Items injected by JS -->
+        </div>
+
+        <div class="cart-summary">
+          <strong>Total:</strong>
+          <span id="cart-total">₦0</span>
+        </div>
+
+        <div class="cart-actions">
+          <button id="checkout-whatsapp" class="btn btn-primary">
+            Checkout via WhatsApp
+          </button>
+          <button id="close-cart" class="btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details | Prinspiration</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container navbar">
+        <div class="logo">Prinspiration</div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">Shop</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="#" id="cart-btn">Cart (<span id="cart-count">0</span>)</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- PRODUCT DETAILS -->
+    <section>
+      <div class="container" id="product-details">
+        <!-- Product content injected by JS -->
+      </div>
+    </section>
+
+    <!-- RELATED PRODUCTS -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Related Products</h2>
+        </div>
+        <div class="card-grid" id="related-products">
+          <!-- Related products injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>Prinspiration</h3>
+          <p>Premium gadgets for inspired living.</p>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <p><a href="#">Help Center</a></p>
+          <p><a href="#">Warranty</a></p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>Email: support@prinspiration.com</p>
+          <p>WhatsApp Available</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+
+    <script>
+      /* ===============================
+       PRODUCT DETAILS LOGIC
+       =============================== */
+
+      const productDetails = document.getElementById("product-details");
+      const relatedProductsGrid = document.getElementById("related-products");
+
+      const params = new URLSearchParams(window.location.search);
+      const productId = parseInt(params.get("id"));
+
+      const product = products.find((p) => p.id === productId);
+
+      if (!product) {
+        productDetails.innerHTML = "<p>Product not found.</p>";
+      } else {
+        productDetails.innerHTML = `
+        <div class="card-grid" style="align-items:start;">
+          <div>
+            <img src="${product.image}" alt="${product.name}" style="border-radius:12px;">
+          </div>
+
+          <div>
+            <h1>${product.name}</h1>
+            <p style="color:#b5b8c5;margin:12px 0;">${product.shortSpecs}</p>
+            <h2 style="margin:16px 0;">₦${product.price.toLocaleString()}</h2>
+            <p style="color:#4da3ff;font-weight:600;">
+              ${product.availability}
+            </p>
+
+            <p style="margin:24px 0;color:#b5b8c5;">
+              ${product.description}
+            </p>
+
+            <ul style="margin-bottom:24px;">
+              ${product.specs.map((spec) => `<li>${spec}</li>`).join("")}
+            </ul>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <button class="btn btn-primary" onclick="addToCart(${product.id})">
+                Add to Cart
+              </button>
+
+              <a
+                class="btn"
+                style="border:1px solid #2f8cff;"
+                target="_blank"
+                href="https://wa.me/234XXXXXXXXXX?text=${encodeURIComponent(
+                  `Hello, I want to order:\n\n${product.name}\nPrice: ₦${product.price.toLocaleString()}`,
+                )}">
+                Order via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+      }
+
+      /* ===============================
+       RELATED PRODUCTS
+       =============================== */
+
+      const related = products.filter(
+        (p) => p.category === product.category && p.id !== product.id,
+      );
+
+      related.slice(0, 4).forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" style="margin-bottom:12px;border-radius:8px;">
+        <h4>${item.name}</h4>
+        <p style="color:#b5b8c5;font-size:0.9rem;">${item.shortSpecs}</p>
+        <strong style="display:block;margin:12px 0;">
+          ₦${item.price.toLocaleString()}
+        </strong>
+        <a href="product.html?id=${item.id}" class="btn btn-primary">
+          View
+        </a>
+      `;
+
+        relatedProductsGrid.appendChild(card);
+      });
+    </script>
+      </div>
+    </div>
+    <!-- CART MODAL -->
+<div id="cart-modal" class="cart-modal hidden">
+  <div id="cart-overlay" class="cart-overlay"></div>
+
+  <div class="cart-content">
+    <h2>Your Cart</h2>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-summary">
+      <span>Total:</span>
+      <strong id="cart-total">₦0</strong>
+    </div>
+
+    <div class="cart-actions">
+      <button class="btn btn-primary">Checkout via WhatsApp</button>
+      <button class="btn" id="close-cart">Close</button>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
